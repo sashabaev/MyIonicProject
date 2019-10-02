@@ -1,0 +1,21 @@
+<ion-content padding>
+  <h1>Products</h1>
+  <div class="row">
+    <div class="magazine-item" *ngFor="let item of products">
+      <h4>{{item.title}}</h4>
+
+      <div class="magazine-image">
+        <img src="{{item.image}}" class="img-responsive">
+      </div>
+      <p class="text-container">
+        <span class="truncate">{{item.description }}</span>
+     
+        <a (click)="showMore()">...</a>
+      </p>      
+      <b class="title">{{item.price}} ₴</b>
+      <button *ngIf="!item.added" type="button" class="btn btn-success" (click)="AddProduct(item)">Add to cart</button>
+      <button *ngIf="item.added" type="button" class="btn btn-danger" (click)="RemoveProduct(item)">Remove from cart</button>
+    </div>
+  </div>
+  <a routerLink="/shoppingList">go to cart</a>
+</ion-content>
