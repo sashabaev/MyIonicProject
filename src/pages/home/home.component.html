@@ -1,5 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Books</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content padding>
-  <h1>Products</h1>
   <div class="row">
     <div class="magazine-item" *ngFor="let item of products">
       <h4>{{item.title}}</h4>
@@ -9,12 +17,11 @@
       </div>
       <p class="text-container">
         <span class="truncate">{{item.description }}</span>
-     
         <a (click)="showMore()">...</a>
-      </p>      
+      </p>
       <b class="title">{{item.price}} ₴</b>
-      <button *ngIf="!item.added" type="button" class="btn btn-success" (click)="AddProduct(item)">Add to cart</button>
-      <button *ngIf="item.added" type="button" class="btn btn-danger" (click)="RemoveProduct(item)">Remove from cart</button>
+      <button ion-button color="success" *ngIf="!item.added" (click)="AddProduct(item)">Add to cart</button>
+      <button ion-button color="danger" *ngIf="item.added" (click)="RemoveProduct(item)">Remove from cart</button>
     </div>
   </div>
   <a routerLink="/shoppingList">go to cart</a>

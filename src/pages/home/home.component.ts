@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { CartService } from '../../services/cartService';
 import { Book } from '../../entities/book';
@@ -21,7 +20,6 @@ export class HomeComponent implements OnInit {
     this._cookieService = cookieService}
 
   ngOnInit() {
-    debugger
     const access =  this._cookieService.get("access_token");
     // if(access !== "true"){
     //   this.navParams.get('login')
@@ -35,7 +33,6 @@ export class HomeComponent implements OnInit {
         error => {
           this._cookieService.deleteAll();
           console.log('oops', error)
-          //this.router.navigate(['login'])
         });
     }
     this.products = this._cartService.AllProducts;

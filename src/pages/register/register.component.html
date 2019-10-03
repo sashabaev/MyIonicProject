@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My First List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form  [formGroup]="form" class="form-signin" (ngSubmit)="register()"> 
+    <h2 class="form-signin-heading">Registration new account</h2>
+    <ion-item>
+      <ion-label>Email address</ion-label>
+      <ion-input type="text" formControlName="userName" name="user" id="inputEmail" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" formControlName="password"  id="inputPassword"  name="pass" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Confirm Password</ion-label>
+      <ion-input type="password" id="passwordAgain"  formControlName="passwordAgain" name="pass" required></ion-input>
+    </ion-item>
+    
+    <br />
+    
+    <div *ngIf="form.hasError('passwordsNotEqual')" >Passwords are different. They should be equal!</div>
+    <button [disabled]="!form.valid"  class="btn btn-lg btn-primary btn-block">Create Account</button>
+    <br />    
+  </form > 
+</ion-content> 

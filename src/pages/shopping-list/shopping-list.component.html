@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My First List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <h1>You Products</h1>
+  <div class="row">
+    <div class="magazine-item" *ngFor="let item of products">
+      <h4>{{item.title}}</h4>
+
+      <div class="magazine-image">
+        <img src="{{item.image}}" class="img-responsive">
+      </div>
+      <p>{{item.description}}</p>
+      <b class="title">{{item.price}} ₴</b>
+    </div>
+  </div>
+  <br />
+  <div> <b class="title">Sum Your choice: {{sumProducts}} ₴</b></div>
+  <button type="button" class="btn btn-success m-r-10" (click)="backClicked()">Back</button>
+  <button type="button" class="btn btn-success" (click)="Pay()">Pay</button>
+</ion-content>

@@ -14,15 +14,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { CartService } from '../services/cartService';
 import { CookieService } from 'ngx-cookie-service';
+import { RegisterComponent } from '../pages/register/register.component';
+import { LoginComponent } from '../pages/login/login.component';
+import { AuthorizeService } from '../services/AuthorizeService';
+import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { RepeatPasswordEStateMatcher } from '../services/validators';
+import { ShoppingListComponent } from '../pages/shopping-list/shopping-list.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [    
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent,   
+    LoginComponent,
+    ShoppingListComponent
   ],
   imports: [
     HttpModule,
@@ -36,11 +45,17 @@ import { CookieService } from 'ngx-cookie-service';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent,
+    LoginComponent,
+    ShoppingListComponent
   ],
   providers: [
     CookieService,
     CartService,
+    AuthorizeService,
+    Validators,
+    RepeatPasswordEStateMatcher,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
