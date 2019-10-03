@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My First List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <ion-item>
+      <ion-label>Email address</ion-label>
+      <ion-input type="text" [(ngModel)]="userName" name="user" id="inputEmail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" id="inputPassword" [(ngModel)]="password" name="pass"></ion-input>
+    </ion-item>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button ion-button type="submit" block (click)="login()">Sign in</button>
+     </form>
+</ion-content>
